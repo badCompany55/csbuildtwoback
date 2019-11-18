@@ -8,9 +8,10 @@ import getopt, sys
 
 all_command_args = sys.argv
 arg_list = all_command_args[1:]
-unixOptions = "k:h"
-gnuOptions = ["key=", "help"]
+unixOptions = "k:d:h"
+gnuOptions = ["key=", "destination=","help"]
 
+destination = None
 
 try:
     args, values = getopt.getopt(arg_list, unixOptions, gnuOptions)
@@ -21,6 +22,8 @@ except getopt.error as err:
 for curr_arg, curr_val in args:
     if curr_arg in ("-k", "--key"):
         key = curr_val
+    if curr_arg in ("-d", "--destination"):
+        destination = int(curr_val)
 
 
 def load():
@@ -180,7 +183,7 @@ landmarks = data["titles"]
 
 # print(landmarks)
 # print("Where would you like to go?")
-destination = 467
+# destination = 467
 
 start = init()
 route = find_path(start["room_id"], destination)

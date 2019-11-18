@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from api.api import MapViewSet, TokenObtainPairPatchedView, UpdateStatsAPI, RunLootAPI, ChangeNameAPI
+from api.api import MapViewSet, TokenObtainPairPatchedView, UpdateStatsAPI, RunLootAPI, ChangeNameAPI, BrightlyLitRoomAPI, ShopAPI, MistyRoomAPI, MtHollowayAPI, PeakOfMtHollowayAPI, TransmogriphierAPI, ADarkCaveApi, LinhsShrineApi, GlassowynsGraveApi, WishingWellApi
 
 # from rest_framework_simplejwt import views
 
@@ -24,7 +24,17 @@ router = routers.DefaultRouter()
 router.register("map", MapViewSet)
 router.register("status", UpdateStatsAPI)
 router.register("loot", RunLootAPI, basename="Loot")
-router.register("namechange", ChangeNameAPI, basename="changename")
+router.register("piraterys", ChangeNameAPI, basename="piraterys")
+router.register("brightlylitroom", BrightlyLitRoomAPI, basename="brightlylitroom" )
+router.register("shop", ShopAPI, basename="shop" )
+router.register("mistyroom", MistyRoomAPI, basename="mistyroom" )
+router.register("mtholloway", MtHollowayAPI, basename="mtholloway" )
+router.register("peakmtholloway", PeakOfMtHollowayAPI, basename="peakmtholloway" )
+router.register("transmogriphier", TransmogriphierAPI, basename="transmogriphier" )
+router.register("adarkcave", ADarkCaveApi, basename="adarkcave" )
+router.register("linhsshrine", LinhsShrineApi, basename="linhsshrine" )
+router.register("glassowynsgrave", GlassowynsGraveApi, basename="glassowynsgrave" )
+router.register("wishingwell", WishingWellApi, basename="wishingwell" )
 
 urlpatterns = [
     path('admin/', admin.site.urls),

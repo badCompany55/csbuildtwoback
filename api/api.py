@@ -85,8 +85,105 @@ class ChangeNameAPI(viewsets.ModelViewSet):
 
     def get_queryset(self):
         message = Message.objects.filter(key="loot")
-        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}'])
+        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "467"])
         return message
 
+class BrightlyLitRoomAPI(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = LootSerializer
+    @action(detail=False)
 
+    def get_queryset(self):
+        message = Message.objects.filter(key="loot")
+        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "0"])
+        return message
 
+class ShopAPI(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = LootSerializer
+    @action(detail=False)
+
+    def get_queryset(self):
+        message = Message.objects.filter(key="loot")
+        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "1"])
+        return message
+
+class MistyRoomAPI(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = LootSerializer
+    @action(detail=False)
+
+    def get_queryset(self):
+        message = Message.objects.filter(key="loot")
+        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "170"])
+        return message
+
+class MtHollowayAPI(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = LootSerializer
+    @action(detail=False)
+
+    def get_queryset(self):
+        message = Message.objects.filter(key="loot")
+        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "202"])
+        return message
+
+class PeakOfMtHollowayAPI(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = LootSerializer
+    @action(detail=False)
+
+    def get_queryset(self):
+        message = Message.objects.filter(key="loot")
+        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "22"])
+        return message
+
+class TransmogriphierAPI(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = LootSerializer
+    @action(detail=False)
+
+    def get_queryset(self):
+        message = Message.objects.filter(key="loot")
+        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "495"])
+        return message
+
+class ADarkCaveApi(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = LootSerializer
+    @action(detail=False)
+
+    def get_queryset(self):
+        message = Message.objects.filter(key="loot")
+        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "450"])
+        return message
+
+class LinhsShrineApi(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = LootSerializer
+    @action(detail=False)
+
+    def get_queryset(self):
+        message = Message.objects.filter(key="loot")
+        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "461"])
+        return message
+
+class GlassowynsGraveApi(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = LootSerializer
+    @action(detail=False)
+
+    def get_queryset(self):
+        message = Message.objects.filter(key="loot")
+        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "499"])
+        return message
+
+class WishingWellApi(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = LootSerializer
+    @action(detail=False)
+
+    def get_queryset(self):
+        message = Message.objects.filter(key="loot")
+        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "55"])
+        return message
