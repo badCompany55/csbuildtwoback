@@ -1,5 +1,7 @@
 import dj_database_url
 import dotenv
+from dotenv import load_dotenv
+import os
 import django_heroku
 from datetime import timedelta
 """
@@ -28,10 +30,10 @@ if os.path.isfile(dotenv_file):
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '_gn4)w#=k8_v3u22)yf75nd$5$rm2qdsdxxh9#4u2t0d1a8pa0'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG")
 
 ALLOWED_HOSTS = []
 
