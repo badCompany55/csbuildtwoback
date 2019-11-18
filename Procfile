@@ -1,1 +1,1 @@
-web: gunicorn csback.wsgi --log-file
+web: gunicorn csback.wsgi --log-file -
