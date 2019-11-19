@@ -13,7 +13,7 @@ import subprocess
 class MapSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Map
-        fields = ("data")
+        fields = ["data"]
 
     def create(self, validated_data):
         map = Map.objects.create(**validated_data)
