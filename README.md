@@ -61,4 +61,7 @@
     * Request Type = Get
     * Implements phil's travel to algo, travels to the a wishing well location.
 
+14. api/map
+		* Request Type = Get
+		* Map endpoint
 
