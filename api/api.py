@@ -84,7 +84,7 @@ class ChangeNameAPI(viewsets.ModelViewSet):
     @action(detail=False)
 
     def get_queryset(self):
-        message = Message.objects.filter(key="loot")
+        message = Message.objects.filter(key="piraterys")
         p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "467"])
         return message
 
@@ -94,7 +94,7 @@ class BrightlyLitRoomAPI(viewsets.ModelViewSet):
     @action(detail=False)
 
     def get_queryset(self):
-        message = Message.objects.filter(key="loot")
+        message = Message.objects.filter(key="brightlylitroom")
         p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "0"])
         return message
 
@@ -104,7 +104,7 @@ class ShopAPI(viewsets.ModelViewSet):
     @action(detail=False)
 
     def get_queryset(self):
-        message = Message.objects.filter(key="loot")
+        message = Message.objects.filter(key="shop")
         p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "1"])
         return message
 
@@ -114,7 +114,7 @@ class MistyRoomAPI(viewsets.ModelViewSet):
     @action(detail=False)
 
     def get_queryset(self):
-        message = Message.objects.filter(key="loot")
+        message = Message.objects.filter(key="mistyroom")
         p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "170"])
         return message
 
@@ -124,7 +124,7 @@ class MtHollowayAPI(viewsets.ModelViewSet):
     @action(detail=False)
 
     def get_queryset(self):
-        message = Message.objects.filter(key="loot")
+        message = Message.objects.filter(key="mtholloway")
         p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "202"])
         return message
 
@@ -134,7 +134,7 @@ class PeakOfMtHollowayAPI(viewsets.ModelViewSet):
     @action(detail=False)
 
     def get_queryset(self):
-        message = Message.objects.filter(key="loot")
+        message = Message.objects.filter(key="peakmtholloway")
         p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "22"])
         return message
 
@@ -144,7 +144,7 @@ class TransmogriphierAPI(viewsets.ModelViewSet):
     @action(detail=False)
 
     def get_queryset(self):
-        message = Message.objects.filter(key="loot")
+        message = Message.objects.filter(key="transmogriphier")
         p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "495"])
         return message
 
@@ -154,7 +154,7 @@ class ADarkCaveApi(viewsets.ModelViewSet):
     @action(detail=False)
 
     def get_queryset(self):
-        message = Message.objects.filter(key="loot")
+        message = Message.objects.filter(key="adarkcave")
         p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "450"])
         return message
 
@@ -164,7 +164,7 @@ class LinhsShrineApi(viewsets.ModelViewSet):
     @action(detail=False)
 
     def get_queryset(self):
-        message = Message.objects.filter(key="loot")
+        message = Message.objects.filter(key="linhsshrine")
         p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "461"])
         return message
 
@@ -174,7 +174,7 @@ class GlassowynsGraveApi(viewsets.ModelViewSet):
     @action(detail=False)
 
     def get_queryset(self):
-        message = Message.objects.filter(key="loot")
+        message = Message.objects.filter(key="glassowynsgrave")
         p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "499"])
         return message
 
@@ -184,6 +184,6 @@ class WishingWellApi(viewsets.ModelViewSet):
     @action(detail=False)
 
     def get_queryset(self):
-        message = Message.objects.filter(key="loot")
+        message = Message.objects.filter(key="wishingwell")
         p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "55"])
         return message

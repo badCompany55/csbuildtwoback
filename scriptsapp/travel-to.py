@@ -82,6 +82,7 @@ api_url = "http://127.0.0.1:8000/api/"
 
 
 auth_header = {"Authorization": f"Token {key}"}
+print(key)
 
 reverse = {"n": "s", "s": "n", "e": "w", "w": "e"}
 
