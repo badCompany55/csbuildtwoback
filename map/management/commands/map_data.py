@@ -7,7 +7,7 @@ class Command(BaseCommand):
 
 
     def handle(self, *args, **options):
-        with open("scriptsapp/final-path-graph.json", "r") as f:
+        with open("scriptsapp/dbgraph.json", "r") as f:
             newdata = f.read()
         final_data = json.loads(newdata)
         data = Map.objects.all()

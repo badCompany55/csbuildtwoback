@@ -8,6 +8,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework.decorators import action
 from rest_framework.response import Response
+import json
 import subprocess
 
 class MapSerializer(serializers.HyperlinkedModelSerializer):
@@ -185,5 +186,28 @@ class WishingWellApi(viewsets.ModelViewSet):
 
     def get_queryset(self):
         message = Message.objects.filter(key="wishingwell")
-        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "55"])
+        p = subprocess.Popen(["python3", "scriptsapp/well.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "55"])
+        return message
+
+class RequestedRoomApi(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = LootSerializer
+    @action(detail=False)
+
+    def get_queryset(self):
+        message = Message.objects.filter(key="roomid")
+        body_unicode = self.request.body.decode('utf-8')
+        body = json.loads(body_unicode)
+        room_id = body["destination"]
+        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", f'{room_id}'])
+        return message
+
+class MineApi(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = LootSerializer
+    @action(detail=False)
+
+    def get_queryset(self):
+        message = Message.objects.filter(key="wishingwell")
+        p = subprocess.Popen(["python3", "scriptsapp/mine.py", "-k", f'{self.request.headers["backKey"]}'])
         return message

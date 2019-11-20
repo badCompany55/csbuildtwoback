@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from api.api import MapViewSet, TokenObtainPairPatchedView, UpdateStatsAPI, RunLootAPI, ChangeNameAPI, BrightlyLitRoomAPI, ShopAPI, MistyRoomAPI, MtHollowayAPI, PeakOfMtHollowayAPI, TransmogriphierAPI, ADarkCaveApi, LinhsShrineApi, GlassowynsGraveApi, WishingWellApi
+from api.api import MapViewSet, TokenObtainPairPatchedView, UpdateStatsAPI, RunLootAPI, ChangeNameAPI, BrightlyLitRoomAPI, ShopAPI, MistyRoomAPI, MtHollowayAPI, PeakOfMtHollowayAPI, TransmogriphierAPI, ADarkCaveApi, LinhsShrineApi, GlassowynsGraveApi, WishingWellApi, RequestedRoomApi, MineApi
 
 # from rest_framework_simplejwt import views
 
@@ -35,6 +35,8 @@ router.register("adarkcave", ADarkCaveApi, basename="adarkcave" )
 router.register("linhsshrine", LinhsShrineApi, basename="linhsshrine" )
 router.register("glassowynsgrave", GlassowynsGraveApi, basename="glassowynsgrave" )
 router.register("wishingwell", WishingWellApi, basename="wishingwell" )
+router.register("travelto", RequestedRoomApi, basename="travelto")
+router.register("mine", MineApi, basename="mine")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
