@@ -1,7 +1,6 @@
 # import requests
 # from util import *
 import requests
-import time
 import json
 import random
 # import os
@@ -207,18 +206,5 @@ for i in range(len(route) - 1):
     # ]
     # new_room = move(step[0], next_room_id)
 
-response = requests.post(
-    f"{base_url}examine/", json={"name": "WELL"}, headers=auth_header
-)
-result = response.json()
-
-prayer = result["description"]
-# print(prayer)
-
-code = prayer.split("\n")[2:]
-ls8 = Ls8(code)
-
-ls8.run()
-print(ls8.answer)
 
 

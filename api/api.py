@@ -179,6 +179,26 @@ class GlassowynsGraveApi(viewsets.ModelViewSet):
         p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "499"])
         return message
 
+class DecodeApi(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = LootSerializer
+    @action(detail=False)
+
+    def get_queryset(self):
+        p = subprocess.Popen(["python3", "scriptsapp/decode.py", "-k", f'{self.request.headers["backKey"]}'], stdout=subprocess.PIPE)
+        output = p.communicate()[0]
+        print(output)
+        ret_out = output[-30:]
+        print(ret_out)
+        user = CustomUser.objects.get(id=self.request.user.id)
+        message = Message.objects.filter(key=user)
+        if message:
+            message.update(message = ret_out )
+        else:
+            message = Message.objects.create(key=user, message = ret_out)
+        return message
+
+
 class WishingWellApi(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
     serializer_class = LootSerializer
