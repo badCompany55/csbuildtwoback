@@ -7,6 +7,7 @@ import random
 import getopt, sys
 from ls8 import Ls8
 # from dotenv import load_dotenv
+import time
 
 
 all_command_args = sys.argv
