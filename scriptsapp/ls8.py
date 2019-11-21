@@ -39,7 +39,7 @@ class Ls8:
         self.cpu.load(self.program)
         self.cpu.run()
         self.answer = self.cpu.answer
-        print(self.answer)
+        return(self.answer)
 
 
 

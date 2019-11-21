@@ -21,7 +21,7 @@ try:
     args, values = getopt.getopt(arg_list, unixOptions, gnuOptions)
 except getopt.error as err:
     print(str(err))
-    sys.exit(x)
+    sys.exit(err)
 
 for curr_arg, curr_val in args:
     if curr_arg in ("-k", "--key"):
@@ -213,10 +213,12 @@ response = requests.post(
 result = response.json()
 
 prayer = result["description"]
-print(prayer)
+# print(prayer)
 
 code = prayer.split("\n")[2:]
 ls8 = Ls8(code)
 
 ls8.run()
+print(ls8.answer)
+
 
