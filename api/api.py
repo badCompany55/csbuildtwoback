@@ -10,8 +10,6 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 import json
 import subprocess
-import time
-from threading import Thread
 
 class MapSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -181,31 +179,15 @@ class GlassowynsGraveApi(viewsets.ModelViewSet):
         p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "499"])
         return message
 
-
 class WishingWellApi(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
     serializer_class = LootSerializer
     @action(detail=False)
 
     def get_queryset(self):
-        p = subprocess.Popen(["python3", "scriptsapp/well.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "55"], stdout=subprocess.PIPE)
-        check = p.poll()
-        object = {}
-        while check == None:
-            time.sleep(3)
-            mess, err = p.communicate()
-            print(mess[2053:])
-            the_id = Message.objects.filter(key=self.request.user.id)
-            if the_id:
-                the_id.update(message = mess[2053:])
-            else:
-                the_id = Message.objects.create(key=self.request.user.id, message=mess[2053:])
-            # print("message", mess)
-            object = {"message": mess}
-            # Message.objects.create(key=self.request.user.id, message = mess[2000:])
-            check = p.poll()
-        ret_mess = Message.objects.filter(key=self.request.user.id)
-        return ret_mess
+        message = Message.objects.filter(key="wishingwell")
+        p = subprocess.Popen(["python3", "scriptsapp/well.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "55"])
+        return message
 
 class RequestedRoomApi(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
