@@ -60,8 +60,16 @@
 13. api/wishingwell
     * Request Type = Get
     * Implements phil's travel to algo, travels to the a wishing well location.
-
 14. api/map
-		* Request Type = Get
-		* Map endpoint
+    * Request Type = Get
+    * Traversed Map data endpoint
+    
+15. api/decode
+    * Request Type = Get
+    * Once at the wishing well, endpoint decodes the prayer using an implementation of a ls8 emulator
+    
+16. api/mine
+    * Request Type = Get
+    * Once at the room that the decoded message points to, this endpoint implements Josh's mining algo to mine the coin.
+
 
