@@ -16,6 +16,7 @@ unixOptions = "k:d:j:h"
 gnuOptions = ["key=", "destination=","help"]
 
 destination = None
+jwt = None
 
 try:
     args, values = getopt.getopt(arg_list, unixOptions, gnuOptions)
