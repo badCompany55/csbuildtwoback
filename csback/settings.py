@@ -91,7 +91,8 @@ CORS_ALLOW_HEADERS = [
     'user-agent',
     'x-csrftoken',
     'x-requested-with',
-    'backkey'
+    'backkey',
+    'destination'
 ]
 
 ROOT_URLCONF = 'csback.urls'

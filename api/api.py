@@ -215,10 +215,12 @@ class RequestedRoomApi(viewsets.ModelViewSet):
     @action(detail=False)
 
     def get_queryset(self):
+        # message = Message.objects.filter(key="roomid")
+        # body_unicode = self.request.body.decode('utf-8')
+        # body = json.loads(body_unicode)
+        # room_id = body["destination"]
         message = Message.objects.filter(key="roomid")
-        body_unicode = self.request.body.decode('utf-8')
-        body = json.loads(body_unicode)
-        room_id = body["destination"]
+        room_id=self.request.headers['destination']
         p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", f'{room_id}', "-j", f'{self.request.headers["authorization"]}'])
         return message
 
