@@ -88,6 +88,7 @@ api_url = "http://127.0.0.1:8000/api/"
 
 
 auth_header = {"Authorization": f"Token {key}"}
+back_header = {"Authorization": jwt}
 print(key)
 
 reverse = {"n": "s", "s": "n", "e": "w", "w": "e"}
