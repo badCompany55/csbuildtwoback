@@ -12,7 +12,7 @@ import time
 
 all_command_args = sys.argv
 arg_list = all_command_args[1:]
-unixOptions = "k:d:h"
+unixOptions = "k:d:j:h"
 gnuOptions = ["key=", "destination=","help"]
 
 destination = None
@@ -28,6 +28,8 @@ for curr_arg, curr_val in args:
         key = curr_val
     if curr_arg in ("-d", "--destination"):
         destination = int(curr_val)
+    if curr_arg in ("-j", "--jwt"):
+        jwt = curr_val
 
 
 def load():
@@ -107,10 +109,13 @@ def move(direction, room):
         headers=auth_header,
     )
     new_room = response.json()
+    to_post = {}
+    to_post['current_room'] = room
     for message in new_room["messages"]:
         print(message)
     print(f'You can move in {new_room["cooldown"]} seconds')
     time.sleep(new_room["cooldown"])
+    post = requests.post('https://csbuildtwo.herokuapp.com/api/status/',to_post , headers=back_header)
 
     return new_room
 

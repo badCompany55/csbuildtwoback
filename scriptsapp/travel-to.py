@@ -116,7 +116,7 @@ def move(direction, room):
     time.sleep(new_room["cooldown"])
 
     post = requests.post('https://csbuildtwo.herokuapp.com/api/status/',to_post , headers=back_header)
-    print(post)
+    # print(post)
 
     return new_room
 
