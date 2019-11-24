@@ -206,7 +206,7 @@ class WishingWellApi(viewsets.ModelViewSet):
 
     def get_queryset(self):
         message = Message.objects.filter(key="wishingwell")
-        p = subprocess.Popen(["python3", "scriptsapp/well.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "55"])
+        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", '55', "-j", f'{self.request.headers["authorization"]}'])
         return message
 
 class RequestedRoomApi(viewsets.ModelViewSet):
