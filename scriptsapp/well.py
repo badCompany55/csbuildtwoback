@@ -110,7 +110,7 @@ def move(direction, room):
     )
     new_room = response.json()
     to_post = {}
-    to_post['current_room'] = room
+    to_post['current_room'] = f'{room}'
     for message in new_room["messages"]:
         print(message)
     print(f'You can move in {new_room["cooldown"]} seconds')

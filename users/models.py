@@ -11,5 +11,5 @@ class CustomUser(AbstractUser):
 class Status(models.Model):
     player = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     inventory = JSONField(default=dict)
-    current_room = models.IntegerField()
+    current_room = JSONField(default=dict)
 

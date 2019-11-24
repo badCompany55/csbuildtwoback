@@ -109,13 +109,15 @@ def move(direction, room):
     )
     new_room = response.json()
     to_post = {}
-    to_post['current_room'] = room
+    to_post['current_room'] = f'{room}'
+    print(to_post)
     for message in new_room["messages"]:
         print(message)
-    print(f'You can move in {new_room["cooldown"]} seconds')
+    post = requests.post('https://csbuildtwo.herokuapp.com/api/status/',to_post , headers=back_header)
+    # post = requests.post('http://127.0.0.1:8000/api/status/',to_post , headers=back_header)
+    print(post)
     time.sleep(new_room["cooldown"])
 
-    post = requests.post('https://csbuildtwo.herokuapp.com/api/status/',to_post , headers=back_header)
     # print(post)
 
     return new_room
