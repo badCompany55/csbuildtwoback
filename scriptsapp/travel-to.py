@@ -8,10 +8,11 @@ import getopt, sys
 
 all_command_args = sys.argv
 arg_list = all_command_args[1:]
-unixOptions = "k:d:h"
+unixOptions = "k:d:j:h"
 gnuOptions = ["key=", "destination=","help"]
 
 destination = None
+jwt = None
 
 try:
     args, values = getopt.getopt(arg_list, unixOptions, gnuOptions)
@@ -24,6 +25,8 @@ for curr_arg, curr_val in args:
         key = curr_val
     if curr_arg in ("-d", "--destination"):
         destination = int(curr_val)
+    if curr_arg in ("-j", "--jwt"):
+        jwt = curr_val
 
 
 def load():
@@ -81,8 +84,10 @@ base_url = "https://lambda-treasure-hunt.herokuapp.com/api/adv/"
 api_url = "http://127.0.0.1:8000/api/"
 
 
-auth_header = {"Authorization": f"Token {key}"}
-print(key)
+auth_header = {"Authorization": f'Token {key}'}
+back_header = {"Authorization": jwt}
+# print(key)
+print(back_header)
 
 reverse = {"n": "s", "s": "n", "e": "w", "w": "e"}
 
@@ -103,10 +108,15 @@ def move(direction, room):
         headers=auth_header,
     )
     new_room = response.json()
+    to_post = {}
+    to_post['current_room'] = room
     for message in new_room["messages"]:
         print(message)
     print(f'You can move in {new_room["cooldown"]} seconds')
     time.sleep(new_room["cooldown"])
+
+    post = requests.post('https://csbuildtwo.herokuapp.com/api/status/',to_post , headers=back_header)
+    print(post)
 
     return new_room
 

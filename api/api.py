@@ -86,7 +86,7 @@ class ChangeNameAPI(viewsets.ModelViewSet):
 
     def get_queryset(self):
         message = Message.objects.filter(key="piraterys")
-        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "467"])
+        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "467", "-j", f'{self.request.headers["authorization"]}'])
         return message
 
 class BrightlyLitRoomAPI(viewsets.ModelViewSet):
@@ -96,7 +96,7 @@ class BrightlyLitRoomAPI(viewsets.ModelViewSet):
 
     def get_queryset(self):
         message = Message.objects.filter(key="brightlylitroom")
-        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "0"])
+        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "0", "-j", f'{self.request.headers["authorization"]}'])
         return message
 
 class ShopAPI(viewsets.ModelViewSet):
@@ -106,7 +106,7 @@ class ShopAPI(viewsets.ModelViewSet):
 
     def get_queryset(self):
         message = Message.objects.filter(key="shop")
-        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "1"])
+        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "1", "-j", f'{self.request.headers["authorization"]}'])
         return message
 
 class MistyRoomAPI(viewsets.ModelViewSet):
@@ -116,7 +116,7 @@ class MistyRoomAPI(viewsets.ModelViewSet):
 
     def get_queryset(self):
         message = Message.objects.filter(key="mistyroom")
-        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "170"])
+        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "170", "-j", f'{self.request.headers["authorization"]}'])
         return message
 
 class MtHollowayAPI(viewsets.ModelViewSet):
@@ -126,7 +126,7 @@ class MtHollowayAPI(viewsets.ModelViewSet):
 
     def get_queryset(self):
         message = Message.objects.filter(key="mtholloway")
-        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "202"])
+        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "202", "-j", f'{self.request.headers["authorization"]}'])
         return message
 
 class PeakOfMtHollowayAPI(viewsets.ModelViewSet):
@@ -136,7 +136,7 @@ class PeakOfMtHollowayAPI(viewsets.ModelViewSet):
 
     def get_queryset(self):
         message = Message.objects.filter(key="peakmtholloway")
-        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "22"])
+        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "22", "-j", f'{self.request.headers["authorization"]}'])
         return message
 
 class TransmogriphierAPI(viewsets.ModelViewSet):
@@ -146,7 +146,7 @@ class TransmogriphierAPI(viewsets.ModelViewSet):
 
     def get_queryset(self):
         message = Message.objects.filter(key="transmogriphier")
-        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "495"])
+        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "495", "-j", f'{self.request.headers["authorization"]}'])
         return message
 
 class ADarkCaveApi(viewsets.ModelViewSet):
@@ -156,7 +156,7 @@ class ADarkCaveApi(viewsets.ModelViewSet):
 
     def get_queryset(self):
         message = Message.objects.filter(key="adarkcave")
-        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "450"])
+        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "450", "-j", f'{self.request.headers["authorization"]}'])
         return message
 
 class LinhsShrineApi(viewsets.ModelViewSet):
@@ -166,7 +166,7 @@ class LinhsShrineApi(viewsets.ModelViewSet):
 
     def get_queryset(self):
         message = Message.objects.filter(key="linhsshrine")
-        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "461"])
+        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "461", "-j", f'{self.request.headers["authorization"]}'])
         return message
 
 class GlassowynsGraveApi(viewsets.ModelViewSet):
@@ -176,7 +176,7 @@ class GlassowynsGraveApi(viewsets.ModelViewSet):
 
     def get_queryset(self):
         message = Message.objects.filter(key="glassowynsgrave")
-        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "499"])
+        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", "499", "-j", f'{self.request.headers["authorization"]}'])
         return message
 
 class DecodeApi(viewsets.ModelViewSet):
@@ -219,7 +219,7 @@ class RequestedRoomApi(viewsets.ModelViewSet):
         body_unicode = self.request.body.decode('utf-8')
         body = json.loads(body_unicode)
         room_id = body["destination"]
-        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", f'{room_id}'])
+        p = subprocess.Popen(["python3", "scriptsapp/travel-to.py", "-k", f'{self.request.headers["backKey"]}',  "-d", f'{room_id}', "-j", f'{self.request.headers["authorization"]}'])
         return message
 
 class MineApi(viewsets.ModelViewSet):
