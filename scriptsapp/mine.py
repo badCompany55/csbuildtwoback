@@ -71,5 +71,4 @@ if __name__ == '__main__':
                                headers={'Authorization': f'Token {token}'}).json()
 
         print('balance: ', balance)
-        break
 
